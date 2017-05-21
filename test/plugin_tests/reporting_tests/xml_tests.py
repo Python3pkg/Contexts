@@ -70,7 +70,7 @@ class XmlOutputContext:
     @property
     def test_suites(self):
         tree = ET.parse(self.filename).getroot()
-        print(ET.tostring(tree))
+        print((ET.tostring(tree)))
         return tree
 
 

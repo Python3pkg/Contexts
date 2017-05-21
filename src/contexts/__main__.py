@@ -25,8 +25,8 @@ def print_version():
     version = pkg_resources.require('contexts')[0].version
     py_version = '.'.join(str(i) for i in sys.version_info[0:3])
 
-    print("Contexts version " + version)
-    print("Running on Python version " + py_version)
+    print(("Contexts version " + version))
+    print(("Running on Python version " + py_version))
 
 
 if __name__ == "__main__":

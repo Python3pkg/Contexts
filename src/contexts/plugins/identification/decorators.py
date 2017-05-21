@@ -102,5 +102,5 @@ def examples(func):
 
 
 def assert_not_multiple_decorators(item, decorator_type):
-    if any(item in s for k, s in DecoratorBasedIdentifier.decorated_items.items() if k != decorator_type):
+    if any(item in s for k, s in list(DecoratorBasedIdentifier.decorated_items.items()) if k != decorator_type):
         raise ValueError("Function {} has more than one decorator")

@@ -136,7 +136,7 @@ class TopologicalSorter(object):
     # created this class because we don't want to mutate the graph itself during the topological sorting algorithm
     def __init__(self, graph):
         self.nodes = {}
-        for key, dct in graph.nodes.items():
+        for key, dct in list(graph.nodes.items()):
             self.nodes[key] = {'edges_to': dct['edges_to'], 'temp_mark': False, 'perm_mark': not dct['added']}
         self.output = []
 

@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 import io
-import xml.etree.ElementTree as ET
+from . import xml.etree.ElementTree as ET
 
 from . import context_name, format_exception, make_readable
 from ...plugin_interface import NO_EXAMPLE
@@ -40,8 +40,8 @@ class Result:
     def __iter__(self):
         return self.children.__iter__()
 
-    def next(self):
-        return self.children.next()
+    def __next__(self):
+        return next(self.children)
 
 
 class AssertionResult(Result):

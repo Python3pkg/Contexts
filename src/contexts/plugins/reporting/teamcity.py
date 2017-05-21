@@ -151,7 +151,7 @@ class TeamCityReporter(StreamReporter):
             )
 
     def teamcity_print(self, msgName, **kwargs):
-        msg = ' '.join(teamcity_format("{}='{}'", k, v) for k, v in kwargs.items())
+        msg = ' '.join(teamcity_format("{}='{}'", k, v) for k, v in list(kwargs.items()))
         self._print("##teamcity[{} {}]".format(teamcity_format(msgName), msg))
 
 

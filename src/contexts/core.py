@@ -5,6 +5,7 @@ from contextlib import contextmanager
 from . import discovery
 from . import errors
 from .plugin_interface import PluginInterface, TEST_FOLDER, CONTEXT, EXAMPLES, SETUP, ACTION, ASSERTION, TEARDOWN, NO_EXAMPLE
+import collections
 
 
 class TestRun(object):
@@ -135,7 +136,7 @@ class TestClass(object):
         for name in cls.__dict__:
             val = getattr(cls, name)
 
-            if callable(val) and not isprivate(name):
+            if isinstance(val, collections.Callable) and not isprivate(name):
                 response = self.plugin_composite.identify_method(val)
 
                 if response is EXAMPLES and bottom_of_tree:

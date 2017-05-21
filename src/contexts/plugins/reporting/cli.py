@@ -340,7 +340,7 @@ class FailuresOnlyMaster(StreamReporter):
 
     def request_plugins(self):
         returned_plugins = yield [Colouriser, VerboseReporter, StdOutCapturingReporter, UnColouriser]
-        self.plugins = returned_plugins.values()
+        self.plugins = list(returned_plugins.values())
 
     def set_streams(self, stream):
         self.fake_stream = stream
